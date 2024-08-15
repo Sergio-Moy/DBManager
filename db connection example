@@ -1,0 +1,20 @@
+import pyodbc
+
+# Define the path to your Access database
+path = r"D:\Users\Sergio Moy\Documents\Database1.accdb"
+
+# Create a connection string
+conn_str = r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=' + path + ';'
+conn = pyodbc.connect(conn_str)
+cursor = conn.cursor()
+
+id = input("Introduzca el producto a buscar: ")
+
+while id != -1:
+    query = f'SELECT * from Productos where ID = ?'
+    cursor.execute(query, (id,))
+    record = cursor.fetchone()
+    print(record)
+    id = input("Introduzca el producto a buscar: ")
+cursor.close()
+conn.close()

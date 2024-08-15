@@ -1,0 +1,17 @@
+import tkinter as tk
+from tkinter import filedialog
+
+root = tk.Tk()
+root.withdraw()
+file_path = filedialog.asksaveasfilename(
+
+        defaultextension=".pdf",
+        filetypes=[("PDF files", "*.pdf"), ("All files", "*.*")],
+        title="Save PDF as"
+    )
+pdf_data = b"123"
+if file_path:
+        # Assuming `pdf_data` is your PDF content
+        with open(file_path, "wb") as file:
+            file.write(pdf_data)
+        print(f"PDF saved as {file_path}")
