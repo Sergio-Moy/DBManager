@@ -10,8 +10,8 @@ def createpdf(client):
     buffer = BytesIO()
     w,h = A4
     c = canvas.Canvas(buffer, pagesize=A4)
-    c.drawImage(image, 50, h-50, 50, 50, mask='auto')
-    c.drawString(50, h - 100, f"Estimado cliente {client}")
+    c.drawImage(image, 50, h-100, 100, 100, mask='auto')
+    c.drawString(50, h - 120, f"Estimado cliente {client}")
     c.drawString(50, h - 150, "Esta es una cotización de prueba")
     c.save()
     buffer.seek(0)
