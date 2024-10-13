@@ -1,7 +1,11 @@
 import pyodbc
 
+file = open('dbname.txt')
+nombre = file.readlines()[0]
+file.close()
+
 # Define the path to your Access database
-path = r"D:\Users\Sergio Moy\Documents\Database1.accdb"
+path = nombre
 
 # Create a connection string
 conn_str = r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=' + path + ';'
